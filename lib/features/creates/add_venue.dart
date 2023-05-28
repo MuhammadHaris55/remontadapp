@@ -7,6 +7,8 @@ import 'package:remontada/common_widgets/custom_dropdown.dart';
 import 'package:remontada/common_widgets/custom_row.dart';
 import 'package:remontada/common_widgets/custom_text_form.dart';
 import 'package:remontada/constants/global_variables.dart';
+import 'package:remontada/features/creates/add_store.dart';
+import 'package:remontada/features/creates/card_summary.dart';
 
 class AddVenue extends StatelessWidget {
   const AddVenue({super.key});
@@ -116,7 +118,7 @@ class AddVenue extends StatelessWidget {
                     CustomRow(
                       text: 'Select Timing',
                       icon: const Icon(
-                        Icons.add_circle_outline,
+                        Icons.add_circle,
                         color: AppColors.colorPrimary,
                       ),
                       color: AppColors.colorPrimary,
@@ -124,13 +126,48 @@ class AddVenue extends StatelessWidget {
                     SizedBox(height: 24.0.h),
                     CustomRectangularTextFormField(hintText: 'Cost'),
 
-                    const SizedBox(height: 30.0),
+                    SizedBox(
+                      height: 90.h,
+                    ),
+                    Row(
+                      children: [
+                        Radio(
+                          value: true,
+                          groupValue: true,
+                          activeColor: AppColors.colorPrimary,
+                          // focusColor: AppColors.colorPrimary,
+                          // hoverColor: AppColors.colorPrimary,
+                          onChanged: (value) {},
+                        ),
+                        Expanded(
+                          child: Text(
+                            'I Agree To The Terms And Conditions.',
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12.0.sp,
+                              color: AppColors.colorBlack,
+                              fontStyle: FontStyle.normal,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 30.h,
+                    ),
                     //Spacer(),
                     SizedBox(
                       width: 342.0,
                       height: 50.0,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AddStore()),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                             textStyle: const TextStyle(color: Colors.white),
                             elevation: 5.0,
@@ -138,7 +175,7 @@ class AddVenue extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                             primary: AppColors.colorPrimary),
-                        child: const Text('Add'),
+                        child: const Text('Play'),
                       ),
                     ),
                     // const SizedBox(height: 16.0),

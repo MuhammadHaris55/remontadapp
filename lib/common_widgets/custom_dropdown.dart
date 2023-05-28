@@ -73,6 +73,79 @@ class _customDropDownButtonState extends State<customDropDownButton> {
   }
 }
 
+class roundedCustomDropDownButton extends StatefulWidget {
+  String school;
+  List<String> dropdownOptions;
+  roundedCustomDropDownButton({
+    Key? key,
+    required this.school,
+    required this.dropdownOptions,
+  }) : super(key: key);
+
+  @override
+  State<roundedCustomDropDownButton> createState() =>
+      _roundedCustomDropDownButtonState();
+}
+
+class _roundedCustomDropDownButtonState
+    extends State<roundedCustomDropDownButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // height: 52.h,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: AppColors.colorGrey,
+          //width: 3.0,
+        ),
+        borderRadius: BorderRadius.circular(20.0.r),
+      ),
+      child: DropdownButtonFormField<String>(
+        alignment: AlignmentDirectional.topEnd,
+        value: widget.school,
+        borderRadius: BorderRadius.all(Radius.circular(20.0.r)),
+        dropdownColor: const Color.fromRGBO(243, 243, 243, 1),
+        icon: const Icon(Icons.keyboard_arrow_down_sharp),
+        decoration: InputDecoration(
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 17.0.h),
+          fillColor: AppColors.backgroundColor,
+          // border: OutlineInputBorder(
+          //   borderSide: BorderSide(color: AppColors.colorPrimary),
+          //   // focusColor:AppColors.colorPrimary,
+          //   borderRadius: BorderRadius.all(
+          //     Radius.circular(6.0.r),
+          //   ),
+          // ),
+          // disabledBorder: InputBorder.none,
+          //enabledBorder: InputBorder.none,
+          border: InputBorder.none,
+        ),
+        style: const TextStyle(
+          //  fontFamily: appFontFamily,
+          color: AppColors.colorGrey,
+        ),
+        focusColor: const Color.fromRGBO(243, 243, 243, 1),
+        isExpanded: true,
+        onChanged: (String? value) {
+          setState(() {
+            widget.school = value!;
+          });
+        },
+        items: widget.dropdownOptions.map<DropdownMenuItem<String>>((e) {
+          return DropdownMenuItem<String>(
+            value: e,
+            child: Text(
+              e,
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+}
+
+
 // const List dropDownOptions = [
 //   'Select Sports',
 //   'Game1',

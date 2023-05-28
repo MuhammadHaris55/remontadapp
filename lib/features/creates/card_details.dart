@@ -6,8 +6,8 @@ import 'package:remontada/common_widgets/custom_text_form.dart';
 import 'package:remontada/constants/global_variables.dart';
 import 'package:remontada/features/creates/card_summary.dart';
 
-class ConfirmOrder extends StatelessWidget {
-  const ConfirmOrder({super.key});
+class CardDetails extends StatelessWidget {
+  const CardDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class ConfirmOrder extends StatelessWidget {
                 //   width: 5,
                 // ),
                 Text(
-                  "Your Cart",
+                  "Card Details",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 30.0.sp,
@@ -95,10 +95,10 @@ class ConfirmOrder extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 10.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  //  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Order Details',
+                      'Card Number',
                       overflow: TextOverflow.clip,
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
@@ -117,7 +117,7 @@ class ConfirmOrder extends StatelessWidget {
                         //       // color: AppColors.colorPrimary,
                         //       ), // Specify the color of the bottom border
                         // ),
-                        hintText: 'xyz court tornament',
+                        hintText: '2536 3587 5300 5682',
                       ),
                     ),
                     SizedBox(
@@ -125,201 +125,99 @@ class ConfirmOrder extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Expanded(
-                          child: Text(
-                            "Payment",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18.0.sp,
-                              color: AppColors.colorBlack,
-                              fontStyle: FontStyle.normal,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 20,
-                          height: 20,
-                          color: Colors.black,
-                        ),
-                        Text(
-                          "...5682",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18.0.sp,
-                            color: AppColors.colorBlack,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            // Button ka functionality yahan likhein
-                          },
-                          style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(color: Colors.white),
-                              elevation: 5.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0.r),
-                              ),
-                              primary: AppColors.colorPrimary),
-                          child: const Text('Change'),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 25.h,
-                    ),
-                    Container(
-                      height: 1.6.h,
-                      width: 382.w,
-                      color: AppColors.colorGrey,
-                    ),
-                    SizedBox(
-                      height: 50.h,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "Promo Code",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18.0.sp,
-                              color: AppColors.colorBlack,
-                              fontStyle: FontStyle.normal,
-                            ),
-                          ),
-                        ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              "Add Promo Code",
+                              "Expire Date",
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                fontSize: 18.0.sp,
+                                fontSize: 22.0.sp,
+                                color: AppColors.colorBlack,
+                                fontStyle: FontStyle.normal,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 45.h,
+                            ),
+                            Text(
+                              "01/12",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20.0.sp,
                                 color: AppColors.colorGrey,
                                 fontStyle: FontStyle.normal,
                               ),
                             ),
                             Container(
                               height: 1.6.h,
-                              width: 144.w,
-                              color: AppColors.colorPrimary,
+                              width: 107.w,
+                              color: AppColors.colorGrey,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 100.w,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "CVV",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 22.0.sp,
+                                color: AppColors.colorBlack,
+                                fontStyle: FontStyle.normal,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 45.h,
+                            ),
+                            Text(
+                              "123",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20.0.sp,
+                                color: AppColors.colorGrey,
+                                fontStyle: FontStyle.normal,
+                              ),
+                            ),
+                            Container(
+                              height: 1.6.h,
+                              width: 107.w,
+                              color: AppColors.colorGrey,
                             ),
                           ],
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: 25.h,
-                    ),
-                    Container(
-                      height: 1.6.h,
-                      width: 382.w,
-                      color: AppColors.colorGrey,
-                    ),
-                    SizedBox(
-                      height: 50.h,
+                      height: 55.h,
                     ),
                     Text(
-                      "Payment Details",
+                      "Cardholder Name",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 18.0.sp,
+                        fontSize: 22.0.sp,
                         color: AppColors.colorBlack,
                         fontStyle: FontStyle.normal,
                       ),
                     ),
                     SizedBox(
-                      height: 12.h,
+                      height: 45.h,
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "xyz court tornament",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14.0.sp,
-                              color: AppColors.colorGrey,
-                              fontStyle: FontStyle.normal,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "RS 200",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14.0.sp,
-                            color: AppColors.colorGrey,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "Extra Charges",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14.0.sp,
-                              color: AppColors.colorGrey,
-                              fontStyle: FontStyle.normal,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "RS 50",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14.0.sp,
-                            color: AppColors.colorGrey,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "Grand total",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14.0.sp,
-                              color: AppColors.colorGrey,
-                              fontStyle: FontStyle.normal,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "RS 250",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14.0.sp,
-                            color: AppColors.colorGrey,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 25.h,
-                    ),
-                    Container(
-                      height: 1.6.h,
-                      width: 382.w,
-                      color: AppColors.colorGrey,
+                    const TextField(
+                      decoration: InputDecoration(
+                        // border: UnderlineInputBorder(
+                        //   borderSide: BorderSide(
+                        //       // color: AppColors.colorPrimary,
+                        //       ), // Specify the color of the bottom border
+                        // ),
+                        hintText: 'John Doe',
+                      ),
                     ),
                     SizedBox(
                       height: 50.h,
@@ -336,11 +234,11 @@ class ConfirmOrder extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            'I Agree To The Terms And Conditions.',
+                            'Card Save.',
                             overflow: TextOverflow.clip,
                             style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.0.sp,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.0.sp,
                               color: AppColors.colorBlack,
                               fontStyle: FontStyle.normal,
                             ),
@@ -349,7 +247,7 @@ class ConfirmOrder extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 30.h,
+                      height: 90.h,
                     ),
                     Center(
                       child: SizedBox(
@@ -370,7 +268,7 @@ class ConfirmOrder extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20.0.r),
                               ),
                               primary: AppColors.colorPrimary),
-                          child: const Text('Confirm Order'),
+                          child: const Text('Confirm'),
                         ),
                       ),
                     ),

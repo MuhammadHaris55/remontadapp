@@ -66,3 +66,21 @@ List<Map<String, dynamic>> dummyData = [
     'jobTitle': 'Designer',
   },
 ];
+List<Map<String, dynamic>> dummyData1 = [
+  {
+    'storename': 'XYZ Store',
+    'location': 'Riyadh',
+  },
+  {
+    'storename': 'Store 2',
+    'location': 'Jeddah',
+  },
+  {
+    'storename': 'Store 3',
+    'location': 'Saudia Arabia',
+  },
+  {
+    'storename': 'Store 4',
+    'location': 'Riyadh',
+  },
+];
