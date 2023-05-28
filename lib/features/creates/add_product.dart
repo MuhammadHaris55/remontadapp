@@ -4,11 +4,12 @@ import 'package:remontada/common_widgets/custom_dropdown.dart';
 import 'package:remontada/common_widgets/custom_row.dart';
 import 'package:remontada/common_widgets/custom_text_form.dart';
 import 'package:remontada/constants/global_variables.dart';
+import 'package:remontada/features/creates/card_details.dart';
 
 import 'confirm_order.dart';
 
-class CreateEvent extends StatelessWidget {
-  const CreateEvent({super.key});
+class AddProducts extends StatelessWidget {
+  const AddProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +73,7 @@ class CreateEvent extends StatelessWidget {
                 //   width: 5,
                 // ),
                 Text(
-                  "Create Event",
+                  "Add Products",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 30.0.sp,
@@ -92,12 +93,12 @@ class CreateEvent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CustomRectangularTextFormField(hintText: 'Event Name'),
+                    CustomRectangularTextFormField(hintText: 'Products Name'),
                     SizedBox(
                       height: 24.h,
                     ),
                     CustomRow(
-                      text: 'Add Cover Photo',
+                      text: 'Add Product Photo',
                       icon: const Icon(
                         Icons.add_circle,
                         color: AppColors.colorPrimary,
@@ -107,41 +108,15 @@ class CreateEvent extends StatelessWidget {
                     SizedBox(
                       height: 24.h,
                     ),
-                    customDropDownButton(
-                      school: 'Select Dates',
-                      dropdownOptions: const [
-                        'Select Dates',
-                        'Game1',
-                        'Game2',
-                        'Game2',
-                        'Game2',
-                        'Game2',
-                      ],
-                    ),
+                    CustomRectangularTextFormField(hintText: 'Prize'),
                     SizedBox(
                       height: 24.h,
                     ),
-                    // CustomRectangularTextFormField(hintText: 'Select venue'),
-                    // const SizedBox(
-                    //   height: 24,
-                    // ),
-                    customDropDownButton(
-                      school: 'Select Sports',
-                      dropdownOptions: const [
-                        'Select Sports',
-                        'activity1',
-                        'activity2',
-                        'activity2',
-                        'activity2',
-                        'activity2',
-                      ],
-                    ),
+
+                    CustomRectangularTextFormField(
+                        hintText: 'Product Description'),
                     SizedBox(
-                      height: 24.h,
-                    ),
-                    CustomRectangularTextFormField(hintText: 'Location'),
-                    SizedBox(
-                      height: 100.h,
+                      height: 200.h,
                     ),
                     Row(
                       children: [
@@ -176,7 +151,7 @@ class CreateEvent extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const ConfirmOrder()),
+                                builder: (context) => const CardDetails()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
@@ -186,7 +161,7 @@ class CreateEvent extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20.0.r),
                             ),
                             primary: AppColors.colorPrimary),
-                        child: const Text('Post'),
+                        child: const Text('Add'),
                       ),
                     ),
                     SizedBox(height: 16.0.h),
