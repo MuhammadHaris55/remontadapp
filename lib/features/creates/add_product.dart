@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:remontada/common_widgets/custom_dropdown.dart';
-import 'package:remontada/common_widgets/custom_row.dart';
-import 'package:remontada/common_widgets/custom_text_form.dart';
-import 'package:remontada/constants/global_variables.dart';
-import 'package:remontada/features/creates/card_details.dart';
 
-import 'confirm_order.dart';
+import '../../common_widgets/custom_row.dart';
+import '../../common_widgets/custom_text_form.dart';
+import '../../constants/global_variables.dart';
+import 'card_details.dart';
 
 class AddProducts extends StatelessWidget {
   const AddProducts({super.key});

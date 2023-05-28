@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../common_widgets/bottom_bar.dart';
 import '../../../constants/global_variables.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         child: ListView(
           /// mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             SizedBox(height: 30.0.h),
+            SizedBox(height: 30.0.h),
             //const Spacer(),
             Container(
               //   color: Colors.red,
@@ -34,7 +35,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ),
             //const SizedBox(height: 10.0),
             //const Spacer(),
-             Center(
+            Center(
               child: Text(
                 'Create New Account',
                 style: TextStyle(
@@ -46,14 +47,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
             ),
 
-             SizedBox(height: 10.0.h),
+            SizedBox(height: 10.0.h),
             TextField(
               textAlign: TextAlign.left,
               // controller: someTextXontroller,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 hintText: 'FirstName',
-                prefixIcon:  Icon(Icons.person_outline_rounded),
+                prefixIcon: Icon(Icons.person_outline_rounded),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20.r),
                   borderSide: const BorderSide(
@@ -139,6 +140,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             CustomDropDownButton(
               school: 'DOB',
             ),
+            SizedBox(height: 15.0.h),
 
             //  DropdownButtonFormField(items: items, onChanged: onChanged),
             // CustomTextFormField(
@@ -152,7 +154,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               width: 342.0.w,
               height: 50.0.h,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const BottomBar()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                     textStyle: const TextStyle(color: Colors.white),
                     elevation: 0.0,
@@ -160,12 +167,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       borderRadius: BorderRadius.circular(20.0.r),
                     ),
                     primary: AppColors.colorPrimary),
-                child: const Text('Login'),
+                child: const Text('Sign up'),
               ),
             ),
 
-            const Spacer(),
-             SizedBox(height: 10.0.h),
+            // const Spacer(),
+            SizedBox(height: 10.0.h),
             // SizedBox(
             //   width: 200.0,
             //   height: 50.0,
@@ -261,17 +268,20 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
     return DropdownButtonFormField<String>(
       alignment: AlignmentDirectional.topEnd,
       value: widget.school,
+      itemHeight: 57.0.h,
       borderRadius: BorderRadius.all(Radius.circular(6.0.r)),
       dropdownColor: const Color.fromRGBO(243, 243, 243, 1),
+      // dropdownColor: Colors.white,
       icon: const Icon(Icons.keyboard_arrow_down_sharp),
       decoration: InputDecoration(
         contentPadding:
             EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 17.0.h),
-        fillColor: const Color.fromRGBO(243, 243, 243, 1),
+        // fillColor: const Color.fromRGBO(243, 243, 243, 1),
+        fillColor: Colors.white,
         border: OutlineInputBorder(
-          borderSide: BorderSide.none,
+          // borderSide: BorderSide.none,
           borderRadius: BorderRadius.all(
-            Radius.circular(6.0.r),
+            Radius.circular(20.0.r),
           ),
         ),
         // disabledBorder: InputBorder.none,
@@ -279,10 +289,12 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
         // border: InputBorder.none,
       ),
       style: const TextStyle(
-          // fontFamily: appFontFamily,
-          // color: AppColors.colorHintText,
-          ),
-      focusColor: const Color.fromRGBO(243, 243, 243, 1),
+        // fontFamily: appFontFamily,
+        // color: AppColors.colorHintText,
+        color: Colors.black,
+      ),
+      // focusColor: const Color.fromRGBO(243, 243, 243, 1),
+      focusColor: Colors.black,
       isExpanded: true,
       onChanged: (String? value) {
         setState(() {
@@ -334,6 +346,4 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
 
 const List dropDownOptions = [
   'DOB',
-  '',
-  '',
 ];

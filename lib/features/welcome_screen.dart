@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:remontada/features/creates/add_venue.dart';
-import 'package:remontada/features/creates/create_events.dart';
-import 'package:remontada/features/creates/create_teams.dart';
-import 'package:remontada/features/creates/create_tournament.dart';
-import 'package:remontada/features/creates/main_create_screen.dart';
-import 'package:remontada/features/home/Auth/contactus.dart';
-import 'package:remontada/features/home/Auth/login.dart';
-import 'package:remontada/features/home/Auth/registration.dart';
 import '../../../constants/global_variables.dart';
+import '../constants/utils.dart';
+import 'creates/find_stories.dart';
+import 'home/Auth/login.dart';
+import 'home/Auth/registration.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -25,12 +21,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding:  EdgeInsets.symmetric(horizontal: 30.0.w),
+        padding: EdgeInsets.symmetric(horizontal: 30.0.w),
         color: AppColors.backgroundColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             SizedBox(height: 30.0.h),
+            SizedBox(height: 30.0.h),
             //const Spacer(),
             Image.asset(
               AssetImages.appLogo,
@@ -38,7 +34,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
             //const SizedBox(height: 10.0),
             //const Spacer(),
-             Text(
+            Text(
               'Welcome',
               style: TextStyle(
                 fontWeight: FontWeight.w700,
@@ -47,20 +43,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 fontStyle: FontStyle.normal,
               ),
             ),
-             SizedBox(height: 10.0.h),
+            SizedBox(height: 10.0.h),
 
             SizedBox(
               width: 342.0.w,
               height: 50.0.h,
               child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const MainCreateScreen()),
-                        );
-                      },// yai mera project hai acahw chup chap dykhu .. tnag nhi kary 
-                      //
+                onPressed: () {
+                  showSnackBar(context, "Functionality under process");
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //       builder: (context) => const MainCreateScreen()),
+                  // );
+                }, // yai mera project hai acahw chup chap dykhu .. tnag nhi kary
+                //
                 style: ElevatedButton.styleFrom(
                     textStyle: const TextStyle(color: Colors.white),
                     elevation: 3.0,
@@ -70,7 +67,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     primary: AppColors.colorBlue),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:  [
+                  children: [
                     Image(
                       image: AssetImage('assets/images/facebook.png'),
                       width: 20.0.w,
@@ -90,16 +87,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
             ),
-             SizedBox(height: 20.0.h),
+            SizedBox(height: 20.0.h),
             SizedBox(
               width: 342.0.w,
               height: 50.0.h,
               child: ElevatedButton(
                   onPressed: () {
+                    showSnackBar(context, "Functionality under process");
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const CreateTeams()),
+                          builder: (context) => const FindStries()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -112,8 +110,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children:  [
-                     const  Image(
+                    children: [
+                      const Image(
                         image: AssetImage('assets/images/Google.png'),
                         // width: 20.0,
                         // height: 20.0,
@@ -131,7 +129,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ],
                   )),
             ),
-             SizedBox(height: 20.0.h),
+            SizedBox(height: 20.0.h),
             SizedBox(
               width: 342.0.w,
               height: 50.0.h,
@@ -150,7 +148,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       borderRadius: BorderRadius.circular(20.0.r),
                     ),
                     primary: AppColors.colorPrimary),
-                child:  Text('Login',
+                child: Text('Login',
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 16.0.sp,
@@ -159,7 +157,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     )),
               ),
             ),
-             SizedBox(height: 17.0.h),
+            SizedBox(height: 17.0.h),
             Text(
               'Don\'t have an account? ',
               style: TextStyle(
@@ -167,7 +165,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 fontSize: 16.sp,
               ),
             ),
-             SizedBox(height: 5.0.h),
+            SizedBox(height: 5.0.h),
             GestureDetector(
               // onTap: () {
               onTap: () {
@@ -189,7 +187,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
 
             const Spacer(),
-             SizedBox(height: 10.0.h),
+            SizedBox(height: 10.0.h),
           ],
         ),
       ),

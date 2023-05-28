@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:remontada/common_widgets/custom_dropdown.dart';
-import 'package:remontada/common_widgets/custom_row.dart';
-import 'package:remontada/common_widgets/custom_text_form.dart';
-import 'package:remontada/constants/global_variables.dart';
 
+import '../../common_widgets/custom_dropdown.dart';
+import '../../common_widgets/custom_row.dart';
+import '../../common_widgets/custom_text_form.dart';
+import '../../constants/global_variables.dart';
 import 'confirm_order.dart';
 
 class CreateEvent extends StatelessWidget {

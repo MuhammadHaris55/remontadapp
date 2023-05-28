@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:remontada/constants/global_variables.dart';
+
+import '../../../constants/global_variables.dart';
+import '../../find/find_gym.dart';
+import '../../find/find_tournament.dart';
+import '../../find/find_trainer.dart';
+import '../../find/find_venue.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -88,109 +93,132 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      width: 174.w,
-                      height: 149.h,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: AppColors.colorBlack,
-                        borderRadius: BorderRadius.circular(10.r),
-                        border: Border.all(
-                          color: AppColors.colorGrey,
-                          width: 1.0.w,
-                        ),
-                      ),
-                      child: Column(
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10.r),
-                            child: Image.asset(
-                              'assets/images/gym.png',
-                              fit: BoxFit.cover,
-                              height: 113.5.h,
-                              width: 174.w,
-                            ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const FindGym()),
+                        );
+                      },
+                      child: Container(
+                        width: 174.w,
+                        height: 149.h,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: AppColors.colorBlack,
+                          borderRadius: BorderRadius.circular(10.r),
+                          border: Border.all(
+                            color: AppColors.colorGrey,
+                            width: 1.0.w,
                           ),
-                          Container(
-                            width: 173.w,
-                            height: 32.5.h,
-                            decoration: BoxDecoration(
-                              color: AppColors.colorBlack,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(10.r),
-                                bottomRight: Radius.circular(10.r),
+                        ),
+                        child: Column(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10.r),
+                              child: Image.asset(
+                                'assets/images/gym.png',
+                                fit: BoxFit.cover,
+                                height: 113.5.h,
+                                width: 174.w,
                               ),
                             ),
-                            child: const Center(
-                              child: Text(
-                                'Gym',
-                                style: TextStyle(
-                                  //fontWeight: FontWeight.w700,
-                                  fontSize: 14.0,
-                                  color: AppColors.backgroundColor,
-                                  fontStyle: FontStyle.normal,
+                            Container(
+                              width: 173.w,
+                              height: 32.5.h,
+                              decoration: BoxDecoration(
+                                color: AppColors.colorBlack,
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10.r),
+                                  bottomRight: Radius.circular(10.r),
+                                ),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'Gym',
+                                  style: TextStyle(
+                                    //fontWeight: FontWeight.w700,
+                                    fontSize: 14.0,
+                                    color: AppColors.backgroundColor,
+                                    fontStyle: FontStyle.normal,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     // SizedBox(
                     //   height: 24.h,
                     // ),
-                    Container(
-                      width: 174.w,
-                      height: 149.h,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: AppColors.backgroundColor,
-                        borderRadius: BorderRadius.circular(10.r),
-                        border: Border.all(
-                          color: AppColors.colorGrey,
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Column(
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10.r),
-                            child: Image.asset(
-                              'assets/images/trainer1.png',
-                              fit: BoxFit.fill,
-                              // height: 113.5.h,
-                              // width: 174.w,
-                              height: 102.5.h,
-                              width: 174.w,
-                            ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const FindTrainer()),
+                        );
+                      },
+                      child: Container(
+                        width: 174.w,
+                        height: 149.h,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: AppColors.backgroundColor,
+                          borderRadius: BorderRadius.circular(10.r),
+                          border: Border.all(
+                            color: AppColors.colorGrey,
+                            width: 1.0,
                           ),
-                          Container(
-                            width: 173,
-                            height: 32.5,
-                            decoration: BoxDecoration(
-                              color: AppColors.colorBlack,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(10.r),
-                                bottomRight: Radius.circular(10.r),
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Trainers',
-                                style: TextStyle(
-                                  //fontWeight: FontWeight.w700,
-                                  fontSize: 14.0.sp,
-                                  color: AppColors.backgroundColor,
-                                  fontStyle: FontStyle.normal,
+                        ),
+                        child: Column(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10.0.r),
+                                  topRight: Radius.circular(10.0.r),
+                                ),
+                                child: Image.asset(
+                                  'assets/images/trainer_full.png',
+                                  fit: BoxFit.cover,
+                                  // height: 113.5.h,
+                                  // width: 174.w,
+                                  height: 102.5.h,
+                                  width: 174.w,
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                            Container(
+                              width: 173,
+                              height: 32.5,
+                              decoration: BoxDecoration(
+                                color: AppColors.colorBlack,
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10.r),
+                                  bottomRight: Radius.circular(10.r),
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Trainers',
+                                  style: TextStyle(
+                                    //fontWeight: FontWeight.w700,
+                                    fontSize: 14.0.sp,
+                                    color: AppColors.backgroundColor,
+                                    fontStyle: FontStyle.normal,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -253,54 +281,63 @@ class _HomeScreenState extends State<HomeScreen> {
                   // SizedBox(
                   //   height: 24.h,
                   // ),
-                  Container(
-                    width: 174.w,
-                    height: 148.h,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: AppColors.colorBlack,
-                      borderRadius: BorderRadius.circular(10.r),
-                      border: Border.all(
-                        color: AppColors.colorGrey,
-                        width: 1.0.w,
-                      ),
-                    ),
-                    child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10.r),
-                          child: Image.asset(
-                            'assets/images/gym.png',
-                            fit: BoxFit.cover,
-                            height: 112.5.h,
-                            width: 174.w,
-                          ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FindTournament()),
+                      );
+                    },
+                    child: Container(
+                      width: 174.w,
+                      height: 148.h,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: AppColors.colorBlack,
+                        borderRadius: BorderRadius.circular(10.r),
+                        border: Border.all(
+                          color: AppColors.colorGrey,
+                          width: 1.0.w,
                         ),
-                        Container(
-                          width: 173.w,
-                          height: 32.5.h,
-                          decoration: BoxDecoration(
-                            color: AppColors.colorBlack,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(10.r),
-                              bottomRight: Radius.circular(10.r),
+                      ),
+                      child: Column(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10.r),
+                            child: Image.asset(
+                              'assets/images/tournament.png',
+                              fit: BoxFit.cover,
+                              height: 112.5.h,
+                              width: 174.w,
                             ),
                           ),
-                          child: Center(
-                            child: Text(
-                              'Tournament',
-                              style: TextStyle(
-                                //fontWeight: FontWeight.w700,
-                                fontSize: 14.0.sp,
-                                color: AppColors.backgroundColor,
-                                fontStyle: FontStyle.normal,
+                          Container(
+                            width: 173.w,
+                            height: 32.5.h,
+                            decoration: BoxDecoration(
+                              color: AppColors.colorBlack,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10.r),
+                                bottomRight: Radius.circular(10.r),
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Tournament',
+                                style: TextStyle(
+                                  //fontWeight: FontWeight.w700,
+                                  fontSize: 14.0.sp,
+                                  color: AppColors.backgroundColor,
+                                  fontStyle: FontStyle.normal,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -308,54 +345,63 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 24.h,
               ),
-              Container(
-                width: 385.w,
-                height: 150.h,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColors.colorBlack,
-                  borderRadius: BorderRadius.circular(10.r),
-                  border: Border.all(
-                    color: AppColors.colorGrey,
-                    width: 1.0.w,
-                  ),
-                ),
-                child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10.r),
-                      child: Image.asset(
-                        'assets/images/head.png',
-                        fit: BoxFit.cover,
-                        height: 113.5.h,
-                        width: 385.w,
-                      ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FindVenue()),
+                  );
+                },
+                child: Container(
+                  width: 385.w,
+                  height: 150.h,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: AppColors.colorBlack,
+                    borderRadius: BorderRadius.circular(10.r),
+                    border: Border.all(
+                      color: AppColors.colorGrey,
+                      width: 1.0.w,
                     ),
-                    Container(
-                      width: 385.w,
-                      height: 32.5.h,
-                      decoration: BoxDecoration(
-                        color: AppColors.colorBlack,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10.r),
-                          bottomRight: Radius.circular(10.r),
+                  ),
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.r),
+                        child: Image.asset(
+                          'assets/images/venue.png',
+                          fit: BoxFit.cover,
+                          height: 113.5.h,
+                          // width: 385.w,
+                          width: double.infinity,
                         ),
                       ),
-                      child: Center(
-                        child: Text(
-                          'Vanue',
-                          style: TextStyle(
-                            //fontWeight: FontWeight.w700,
-                            fontSize: 14.0.sp,
-                            color: AppColors.backgroundColor,
-                            fontStyle: FontStyle.normal,
+                      Container(
+                        width: 385.w,
+                        height: 32.5.h,
+                        decoration: BoxDecoration(
+                          color: AppColors.colorBlack,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(10.r),
+                            bottomRight: Radius.circular(10.r),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Venue',
+                            style: TextStyle(
+                              //fontWeight: FontWeight.w700,
+                              fontSize: 14.0.sp,
+                              color: AppColors.backgroundColor,
+                              fontStyle: FontStyle.normal,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
@@ -387,7 +433,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
                     icon: Icon(Icons.arrow_back, size: 30.sp),
@@ -396,57 +442,35 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width / 1.9.w,
+                    // width: MediaQuery.of(context).size.width / 1.9.w,
+                    width: MediaQuery.of(context).size.width / 1.93.w,
                     height: 100.h,
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        ListView.builder(
-                          controller: _scrollController,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 20,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.all(8.0.r),
-                              child: Column(
-                                children: [
-                                  const CircleAvatar(
-                                    backgroundImage: AssetImage(
-                                        'assets/images/profile1.png'),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    'Username',
-                                    style: TextStyle(
-                                      fontSize: 12.sp,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
+                    child: ListView.builder(
+                      controller: _scrollController,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 20,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.all(8.0.r),
+                          child: Column(
+                            children: [
+                              const CircleAvatar(
+                                backgroundImage:
+                                    AssetImage('assets/images/profile1.png'),
                               ),
-                            );
-                          },
-                        ),
-
-                        // Positioned(
-                        //   left: 0,
-                        //   child: IconButton(
-                        //     icon: Icon(Icons.arrow_back),
-                        //     onPressed: () {
-                        //       // handle back button press
-                        //     },
-                        //   ),
-                        // ),
-                        // Positioned(
-                        //   right: 0,
-                        //   child: IconButton(
-                        //     icon: Icon(Icons.arrow_forward),
-                        //     onPressed: () {
-                        //       // handle forward button press
-                        //     },
-                        //   ),
-                        // ),
-                      ],
+                              const SizedBox(height: 4),
+                              Text(
+                                'Username',
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
                   ),
                   IconButton(
@@ -536,7 +560,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text("data"),
                           ],
                         ),
-                      
                       ],
                     ),
                     Column(
