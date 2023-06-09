@@ -1,32 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../constants/global_variables.dart';
+import '../features/home/screens/notification.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  final Function() openDrawer;
+  const CustomAppBar({
+    Key? key,
+    required this.openDrawer,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      automaticallyImplyLeading: false,
       backgroundColor: AppColors.backgroundColor,
-      // title: Text(title),
+      automaticallyImplyLeading: false,
+      title: CircleAvatar(
+        child: Image.asset(
+          'assets/images/profile1.png',
+          fit: BoxFit.cover,
+        ),
+      ),
       actions: <Widget>[
         IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.notifications_active_outlined,
             color: Colors.black,
+            size: 35.0.w,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NotificationScreen()),
+            );
+          },
         ),
         IconButton(
-          icon: const Icon(
-            Icons.menu,
+          icon: Icon(
+            Icons.menu_outlined,
             color: Colors.black,
+            size: 35.0.w,
           ),
-          onPressed: () {},
-        )
+          onPressed: openDrawer,
+        ),
+        SizedBox(width: 10.0.w),
       ],
     );
   }

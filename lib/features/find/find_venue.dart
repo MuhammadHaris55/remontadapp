@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'widgets/explore_date.dart';
 import '../../common_widgets/custom_row.dart';
 import '../../common_widgets/profile_appbar.dart';
 import '../../constants/global_variables.dart';
@@ -126,51 +127,7 @@ class _FindVenueState extends State<FindVenue> {
                   ],
                 ),
                 SizedBox(height: 20.0.h),
-                const Text(
-                  'Let\'s explore',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 20.0.h),
-                SizedBox(
-                  // width: MediaQuery.of(context).size.width / 1.93.w,
-                  height: 65.h,
-                  child: ListView.builder(
-                    // controller: _scrollController,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 20,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        padding: EdgeInsets.all(8.0.w),
-                        decoration: BoxDecoration(
-                          color: index == 4
-                              ? AppColors.colorPrimary
-                              : Colors.white,
-                          borderRadius: BorderRadius.circular(10.0.r),
-                        ),
-                        child: Column(
-                          children: [
-                            Text(
-                              '${index + 1}',
-                              style: TextStyle(
-                                fontSize: 18.sp,
-                                color: Colors.black,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'Sun',
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                const ExploreDate(),
                 SizedBox(height: 40.0.h),
                 // Expanded(
                 // child:

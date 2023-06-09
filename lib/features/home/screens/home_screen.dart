@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../common_widgets/app_bar.dart';
+import '../../../common_widgets/custom_row.dart';
+import '../../../common_widgets/event_tile.dart';
+import '../../../common_widgets/custom_drawer.dart';
 import '../../../constants/global_variables.dart';
 import '../../find/find_gym.dart';
 import '../../find/find_tournament.dart';
@@ -19,44 +23,20 @@ class _HomeScreenState extends State<HomeScreen> {
   // final _scrollController = AutoScrollController();
   final ScrollController _scrollController = ScrollController();
   double _height = 100.0;
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  void _openDrawer() {
+    _scaffoldKey.currentState?.openEndDrawer();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.backgroundColor,
-        title: Row(
-          children: [
-            CircleAvatar(
-              child: Image.asset(
-                'assets/images/profile1.png',
-                fit: BoxFit.cover,
-              ),
-            ),
-          ],
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(
-              Icons.notifications_active_outlined,
-              color: Colors.black,
-            ),
-            onPressed: () {},
-            // onPressed: () =>
-            //     Navigator.pushNamed(context, EditProfile.routeName),
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.black,
-            ),
-            onPressed: () {},
-            // onPressed: () =>
-            //     Navigator.pushNamed(context, EditProfile.routeName),
-          )
-        ],
-      ),
+      key: _scaffoldKey,
+      appBar: CustomAppBar(openDrawer: _openDrawer),
+      endDrawer: CustomDrawer(),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(24.r, 10.r, 24.r, 21.r),
+        padding: EdgeInsets.symmetric(horizontal: 25.0.w, vertical: 10.0.h),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: AppColors.colorPrimary,
                 thickness: 2.r,
                 // indent: 262,
-                endIndent: 86.r,
+                endIndent: 100.0.w,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 22.0.h),
@@ -407,43 +387,28 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 30.h,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Shop',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15.0.sp,
-                      color: AppColors.colorBlack,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                  Container(
-                    height: 2.h,
-                    width: MediaQuery.of(context).size.width / 2.w,
-                    color: AppColors.colorPrimary,
-                  ),
-                  Icon(
-                    Icons.shop,
-                    size: 30.sp,
-                  )
-                ],
+              CustomRow(
+                text: 'Shop',
+                icon: const Icon(Icons.factory_sharp),
+                color: AppColors.colorPrimary,
               ),
+              SizedBox(height: 10.0.h),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.arrow_back, size: 30.sp),
+                    constraints: BoxConstraints(minWidth: 10.0.w),
+                    iconSize: 20.0.w,
+                    icon: Icon(Icons.arrow_back_ios_new_sharp, size: 30.w),
                     onPressed: () {
                       _animateToIndex(-1);
                     },
                   ),
                   SizedBox(
                     // width: MediaQuery.of(context).size.width / 1.9.w,
-                    width: MediaQuery.of(context).size.width / 1.93.w,
+                    // width: MediaQuery.of(context).size.width / 1.93.w,
+                    width: 275.0.w,
                     height: 100.h,
                     child: ListView.builder(
                       controller: _scrollController,
@@ -474,7 +439,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.arrow_forward, size: 30.sp),
+                    constraints: BoxConstraints(minWidth: 10.0.w),
+                    icon: Icon(Icons.arrow_forward_ios_sharp, size: 30.w),
                     onPressed: () {
                       _animateToIndex(1);
                       // handle forward button press
@@ -482,304 +448,28 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
-              SizedBox(height: 10.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Nearby Challesges',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15.0.sp,
-                      color: AppColors.colorBlack,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0.w),
-                    child: Container(
-                      height: 2.h,
-                      width: MediaQuery.of(context).size.width / 3.w,
-                      color: AppColors.colorPrimary,
-                    ),
-                  ),
-                  Icon(Icons.shop, size: 30.sp)
-                ],
+              SizedBox(height: 15.h),
+              CustomRow(
+                text: 'Nearby Challesges',
+                icon: const Icon(Icons.group_sharp),
+                color: AppColors.colorPrimary,
               ),
               SizedBox(height: 10.h),
-              Container(
-                height: 89.h,
-                width: 359.w,
-                color: AppColors.backgroundColor,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 96.77.w,
-                      height: 89.12.h,
-                      child: Image.asset(
-                        'assets/images/player1.png', // replace with your own image path
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Tomorrow, 16 March',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14.0.sp,
-                            color: AppColors.colorBlack,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        ),
-                        // Row(
-                        //   children: [
-                        //     Text("data"),
-                        //     Text("data"),
-                        //   ],
-                        // ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                              alignment: Alignment.topLeft,
-                              icon: Icon(
-                                Icons.access_time,
-                                color: AppColors.colorGrey,
-                                size: 20.sp,
-                              ),
-                              onPressed: () {},
-                              // onPressed: () =>
-                              //     Navigator.pushNamed(context, EditProfile.routeName),
-                            ),
-                            Text("data"),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '80 SAR',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 12.0.sp,
-                            color: AppColors.colorBlack,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 60.0.w,
-                          height: 20.0.h,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HomeScreen()),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                                textStyle: const TextStyle(color: Colors.white),
-                                elevation: 0.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0.r),
-                                ),
-                                primary: AppColors.colorPrimary),
-                            child: Text(
-                              'Join',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12.0.sp,
-                                color: AppColors.backgroundColor,
-                                fontStyle: FontStyle.normal,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+              EventTile(
+                imagePath: 'assets/images/player1.png',
+                group: true,
               ),
-              // Container(
-              //   height: 89.h,
-              //   width: 359.w,
-              //   color: AppColors.backgroundColor,
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //     children: [
-              //       SizedBox(
-              //         width: 96.77.w,
-              //         height: 89.12.h,
-              //         child: Image.asset(
-              //           'assets/images/player1.png', // replace with your own image path
-              //           fit: BoxFit.cover,
-              //         ),
-              //       ),
-              //       Expanded(
-              //         child: Padding(
-              //           padding: EdgeInsets.all(8.0.r),
-              //           child: Column(
-              //             crossAxisAlignment: CrossAxisAlignment.start,
-              //             mainAxisAlignment: MainAxisAlignment.start,
-              //             children: [
-              //               Text(
-              //                 'Tomorrow, 16 March',
-              //                 style: TextStyle(
-              //                   fontWeight: FontWeight.w500,
-              //                   fontSize: 14.0.sp,
-              //                   color: AppColors.colorBlack,
-              //                   fontStyle: FontStyle.normal,
-              //                 ),
-              //               ),
-              //               Row(
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 mainAxisAlignment: MainAxisAlignment.start,
-              //                 children: [
-              //                   IconButton(
-              //                     icon: Icon(
-              //                       Icons.access_time,
-              //                       color: AppColors.colorGrey,
-              //                       size: 20.sp,
-              //                     ),
-              //                     onPressed: () {},
-              //                     // onPressed: () =>
-              //                     //     Navigator.pushNamed(context, EditProfile.routeName),
-              //                   ),
-              //                   Expanded(
-              //                     child: Text(
-              //                       '06:00AM : 9:00AM',
-              //                       style: TextStyle(
-              //                         fontWeight: FontWeight.w600,
-              //                         fontSize: 10.0.sp,
-              //                         color: AppColors.colorGrey,
-              //                         fontStyle: FontStyle.normal,
-              //                       ),
-              //                     ),
-              //                   ),
-              //                 ],
-              //               ),
-              //               Row(
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 mainAxisAlignment: MainAxisAlignment.start,
-              //                 children: [
-              //                   IconButton(
-              //                     icon: Icon(
-              //                       Icons.access_time,
-              //                       color: AppColors.colorGrey,
-              //                       size: 20.sp,
-              //                     ),
-              //                     onPressed: () {},
-              //                     // onPressed: () =>
-              //                     //     Navigator.pushNamed(context, EditProfile.routeName),
-              //                   ),
-              //                   Expanded(
-              //                     child: Text(
-              //                       '06:00AM : 9:00AM',
-              //                       style: TextStyle(
-              //                         fontWeight: FontWeight.w600,
-              //                         fontSize: 10.0.sp,
-              //                         color: AppColors.colorGrey,
-              //                         fontStyle: FontStyle.normal,
-              //                       ),
-              //                     ),
-              //                   ),
-              //                 ],
-              //               ),
-              //               Row(
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 mainAxisAlignment: MainAxisAlignment.start,
-              //                 children: [
-              //                   IconButton(
-              //                     icon: Icon(
-              //                       Icons.access_time,
-              //                       color: AppColors.colorGrey,
-              //                       size: 20.sp,
-              //                     ),
-              //                     onPressed: () {},
-              //                     // onPressed: () =>
-              //                     //     Navigator.pushNamed(context, EditProfile.routeName),
-              //                   ),
-              //                   Expanded(
-              //                     child: Text(
-              //                       '06:00AM : 9:00AM',
-              //                       style: TextStyle(
-              //                         fontWeight: FontWeight.w600,
-              //                         fontSize: 10.0.sp,
-              //                         color: AppColors.colorGrey,
-              //                         fontStyle: FontStyle.normal,
-              //                       ),
-              //                     ),
-              //                   ),
-              //                 ],
-              //               ),
-              //             ],
-              //           ),
-              //         ),
-              //       ),
-              //       Column(
-              //         mainAxisAlignment: MainAxisAlignment.center,
-              //         children: [
-              //           const Text('80 SAR'),
-              //           SizedBox(
-              //             width: 60.0.w,
-              //             height: 20.0.h,
-              //             child: ElevatedButton(
-              //               onPressed: () {
-              //                 Navigator.push(
-              //                   context,
-              //                   MaterialPageRoute(
-              //                       builder: (context) => HomeScreen()),
-              //                 );
-              //               },
-              //               style: ElevatedButton.styleFrom(
-              //                   textStyle: const TextStyle(color: Colors.white),
-              //                   elevation: 0.0,
-              //                   shape: RoundedRectangleBorder(
-              //                     borderRadius: BorderRadius.circular(10.0.r),
-              //                   ),
-              //                   primary: AppColors.colorPrimary),
-              //               child: const Text('Join'),
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              SizedBox(
-                height: 10.h,
+              SizedBox(height: 10.h),
+              CustomRow(
+                text: 'Nearby Event',
+                icon: const Icon(Icons.local_movies_outlined),
+                color: AppColors.colorPrimary,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Nearby Challesges',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15.0.sp,
-                      color: AppColors.colorBlack,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0.w),
-                    child: Container(
-                      height: 2.h,
-                      width: MediaQuery.of(context).size.width / 3.w,
-                      color: AppColors.colorPrimary,
-                    ),
-                  ),
-                  const Icon(Icons.shop)
-                ],
+              SizedBox(height: 10.h),
+              EventTile(
+                imagePath: 'assets/images/event.png',
               ),
+              SizedBox(height: 10.h),
             ],
           ),
         ),
