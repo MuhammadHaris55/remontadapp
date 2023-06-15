@@ -37,7 +37,8 @@ class AssetImages1 {
   static const String onBoardTwo = 'assets/images/onBoarding/onboard_two.png';
   static const String onBoardThree =
       'assets/images/onBoarding/onboard_three.png';
-  static const String walletIcon = 'assets/SVGs/wallet.svg';
+  static const String walletIcon = 'assets/SVGs/wallet.png';
+  static const String chatIcon = 'assets/SVGs/chat.png';
   //assets\images\wallet.png
   static const String courseSvg = 'assets/images/addBalance/Course Icon.svg';
   static const String marked_calendar =
@@ -51,6 +52,39 @@ class AssetImages1 {
   static const String deleteSvg = 'assets/images/SVGs/delete.svg';
   static const String personSvg = 'assets/SVGs/person.svg';
 }
+
+const List<Map<String, String>> ViewStrioesData = [
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball.png',
+    'rupees': '50\$',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball1.png',
+    'rupees': '50\$',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball2.png',
+    'rupees': '50\$',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball3.png',
+    'rupees': '50\$',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball4.png',
+    'rupees': '50\$',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball.png',
+    'rupees': '50\$',
+  },
+];
 
 List<Map<String, dynamic>> dummyData = [
   {
@@ -82,5 +116,86 @@ List<Map<String, dynamic>> dummyData1 = [
   {
     'storename': 'Store 4',
     'location': 'Riyadh',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball.png',
+    'rupees': '50\$',
+  },
+];
+const List<Map<String, String>> WalletData = [
+  {
+    'transactions': 'Product Name',
+    'DOE': 'assets/images/ball.png',
+    'OEX': '50\$',
+    'value': 'Product Name',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball1.png',
+    'rupees': '50\$',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball2.png',
+    'rupees': '50\$',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball3.png',
+    'rupees': '50\$',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball4.png',
+    'rupees': '50\$',
+  },
+  {
+    'productname': 'Product Name',
+    'image': 'assets/images/ball.png',
+    'rupees': '50\$',
+  },
+];
+const List<Map<String, String>> Simages = [
+  {
+    'image': 'assets/images/S1.png',
+  },
+  {
+    'image': 'assets/images/S2.png',
+  },
+  {
+    'image': 'assets/images/S3.png',
+  },
+  {
+    'image': 'assets/images/S4.png',
+  },
+  {
+    'image': 'assets/images/S5.png',
+  },
+];
+const List<Map<String, String>> SideMenuBarListItem = [
+  {
+    'title': 'History',
+    'IconImage': 'assets/images/editingIcon.png',
+  },
+  {
+    'title': 'Vat Bills',
+    'IconImage': 'assets/images/checkbox.png',
+  },
+  {
+    'title': 'Contact Us',
+    'IconImage': 'assets/images/call.png',
+  },
+  {
+    'title': 'Privacy Policy',
+    'IconImage': 'assets/images/privacy_policy.png',
+  },
+  {
+    'title': 'Terms & Conditions',
+    'IconImage': 'assets/images/terms_and_conditions.png',
+  },
+  {
+    'title': 'Ad Account ',
+    'IconImage': 'assets/images/add_group.png',
   },
 ];
