@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:remontada/features/creates/main_create_screen.dart';
 import 'package:remontada/features/home/Auth/contactus.dart';
 import 'package:remontada/features/home/screens/home_screen.dart';
+import 'package:remontada/features/search/search_screen.dart';
+import 'package:remontada/features/wallet/wallet.dart';
 
 import '../constants/global_variables.dart';
 
@@ -28,8 +30,11 @@ class _BottomBarState extends State<BottomBar> {
     // const Center(child: Text('Home Screen')),
     // const Center(child: Text('Add Balance Screen')),
     const HomeScreen(),
+    const SearchScreen(),
     const MainCreateScreen(),
+
     const ContactUs(),
+    const WalletScreen()
     // const Center(child: Text('Profile Screen')),
   ];
 
@@ -61,7 +66,19 @@ class _BottomBarState extends State<BottomBar> {
             //   color: _page == 0 ? AppColors.colorPrimary : AppColors.colorGrey,
             // ),
             label: _page == 0 ? '°' : '',
-            tooltip: 'Add Balance',
+            tooltip: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
+            // SvgPicture.asset(
+            //   AssetImages1.homeSvg,
+            //   color: _page == 0 ? AppColors.colorPrimary : AppColors.colorGrey,
+            // ),
+            label: _page == 1 ? '°' : '',
+            tooltip: 'Search',
           ),
           BottomNavigationBarItem(
             icon: CircleAvatar(
@@ -78,6 +95,18 @@ class _BottomBarState extends State<BottomBar> {
           ),
           BottomNavigationBarItem(
             icon: const Icon(
+              Icons.home,
+              color: Colors.black,
+            ),
+            // SvgPicture.asset(
+            //   AssetImages1.homeSvg,
+            //   color: _page == 0 ? AppColors.colorPrimary : AppColors.colorGrey,
+            // ),
+            label: _page == 2 ? '°' : '',
+            tooltip: 'Chat',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
               Icons.wallet_travel,
               color: Colors.black,
             ),
@@ -87,7 +116,7 @@ class _BottomBarState extends State<BottomBar> {
             //       ? AppColors.backgroundColor
             //       : AppColors.colorPrimary,
             // ),
-            label: _page == 2 ? '°' : '',
+            label: _page == 3 ? '°' : '',
             tooltip: 'Wallet',
             backgroundColor: Colors.white,
           ),
